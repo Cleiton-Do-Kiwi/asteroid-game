@@ -3,11 +3,6 @@ from constants import *
 from logger import log_state
 
 def main():
-    print(f"Starting Asteroids with pygame version: {pygame.version.ver}!")
-    print(f"""
-        Screen width: {SCREEN_WIDTH}
-        Screen height: {SCREEN_HEIGHT}
-        """)
     pygame.init()
     while True:
         log_state()
@@ -17,6 +12,11 @@ def main():
 
     screen.fill("black")
     display.flip()
+    print(f"Starting Asteroids with pygame version: {pygame.version.ver}!")
+    print(f"""
+        Screen width: {SCREEN_WIDTH}
+        Screen height: {SCREEN_HEIGHT}
+        """)
 
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
