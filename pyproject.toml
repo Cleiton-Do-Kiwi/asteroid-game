@@ -1,5 +1,5 @@
 [project]
-name = "boot-dev-asteroid-game"
+name = "bootdev-asteroid-py-game"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
