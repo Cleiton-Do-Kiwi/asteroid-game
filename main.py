@@ -30,6 +30,7 @@ def main():
     Shot.containers = (updatable,drawable,shots) # type: ignore[attr-defined]
 
     dt = 0
+    score = 0
     player = Player(SCREEN_WIDTH/2 , SCREEN_HEIGHT/2 )
     asteroid_field = AsteroidField()
 
@@ -43,15 +44,17 @@ def main():
         for asteroid in asteroids:
             if player.collides_with(asteroid):
                 log_event("player_hit")
-                print("Game over!")
-                sys.exit()
+                print("Game over!Respawning..")
+                player.kill()
+                player = Player(SCREEN_WIDTH/2 , SCREEN_HEIGHT/2 )
         for asteroid in asteroids:
             for shot in shots:
                 if shot.collides_with(asteroid):
                     log_event("asteroid_shot")
                     shot.kill()
-                    asteroid.kill()
-
+                    asteroid.split()
+                    score += 1
+                    print("Current-score",score)
 
         screen.fill("black")
         for sprite in drawable:
